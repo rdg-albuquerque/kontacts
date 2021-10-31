@@ -33,7 +33,7 @@ export default function ModalExcluir() {
 
     async function handleConfirmarExclusao(id) {
         deleteContato(id)
-        setModalExcluir(false)
+        handleClose()
     }
     return (
         <div>

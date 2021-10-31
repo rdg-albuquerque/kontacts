@@ -1,0 +1,29 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    padding: 0px 32px;
+
+    background: #134563;
+
+    height: 70px;
+
+    margin-bottom: 104px;
+}
+
+.header_titulo {
+    font-family: 'Rokkitt';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 27px;
+    text-align: center;
+    
+    color: #FFFFFF;
+    
+}
+
+.btn-sair {
+    cursor: pointer;
+}

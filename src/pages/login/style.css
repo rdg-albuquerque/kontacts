@@ -1,0 +1,35 @@
+.login {
+    min-height: 100vh;
+
+    display: flex;
+}
+
+.login-left, .login-right {
+    width: 50%;
+}
+.login-left {
+    background-image: url('../../assets/login-bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.login-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-right-container {
+    display: flex;
+    flex-direction: column;
+}
+.login-bemvindo{
+    margin-bottom: 9px;
+}
+.login-titulo {
+    margin-bottom: 32px;
+}
+
+.link-cadastro {
+    align-self: center;
+}

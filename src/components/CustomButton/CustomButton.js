@@ -1,27 +1,29 @@
-import Button from '@mui/material/Button';
-import { styled } from '@mui/material/styles';
+import Button from "@mui/material/Button";
+import { styled } from "@mui/material/styles";
 
 const ButtonGreen = styled(Button)({
-    marginBottom: '8px',
-    height: '50px',
-    backgroundColor: "#04C45C",
-    '&:hover': {
-        backgroundColor: '#09a150',
-        borderColor: '#0062cc',
-    }
+  fontSize: "1.6rem",
+  marginBottom: "8px",
+  height: "5rem",
+  backgroundColor: "#04C45C",
+  "&:hover": {
+    backgroundColor: "#09a150",
+    borderColor: "#0062cc",
+  },
+  "@media only screen and (max-width: 780px)": {
+    width: "100%",
+  },
 });
 
 const ButtonRed = styled(Button)({
-    marginBottom: '8px',
-    height: '50px',
-    backgroundColor: '#FB0615A6',
-    '&:hover': {
-        backgroundColor: '#d80311a6',
-        borderColor: '#0062cc',
-    }
+  fontSize: "1.6rem",
+  marginBottom: "8px",
+  height: "50px",
+  backgroundColor: "#FB0615A6",
+  "&:hover": {
+    backgroundColor: "#d80311a6",
+    borderColor: "#0062cc",
+  },
 });
 
-export {
-    ButtonGreen,
-    ButtonRed
-}
+export { ButtonGreen, ButtonRed };

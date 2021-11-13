@@ -1,36 +1,49 @@
 .cadastro {
-    min-height: 100vh;
+  min-height: 100vh;
 
-    display: flex;
+  display: flex;
 }
 
-.cadastro-left, .cadastro-right {
-    width: 50%;
+.cadastro-left,
+.cadastro-right {
+  width: 50%;
 }
 .cadastro-right {
-    background-image: url('../../assets/cadastrar-bg.png');
-    background-size: cover;
-    background-repeat: no-repeat;
+  background-image: url("../../assets/cadastrar-bg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .cadastro-left {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .cadastro-left-container {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 
-    width: 480px;
+  width: 480px;
+
+  padding: 2rem;
 }
 
 .cadastro-titulo {
-    margin-bottom: 32px;
-    align-self: center;
+  margin-bottom: 3.2rem;
+  align-self: center;
 }
 
 .link-login {
-    align-self: center;
+  align-self: center;
+}
+
+@media only screen and (max-width: 830px) {
+  .cadastro-right {
+    display: none;
+  }
+  .cadastro-left,
+  .cadastro-left-container {
+    width: 100%;
+  }
 }

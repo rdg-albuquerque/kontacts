@@ -1,35 +1,48 @@
 .login {
-    min-height: 100vh;
-
-    display: flex;
+  min-height: 100vh;
+  display: flex;
 }
 
-.login-left, .login-right {
-    width: 50%;
+.login-left,
+.login-right {
+  width: 50%;
 }
 .login-left {
-    background-image: url('../../assets/login-bg.png');
-    background-size: cover;
-    background-repeat: no-repeat;
+  background-image: url("../../assets/login-bg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .login-right {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .login-right-container {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
 }
-.login-bemvindo{
-    margin-bottom: 9px;
+.login-bemvindo {
+  margin-bottom: 0.9rem;
 }
 .login-titulo {
-    margin-bottom: 32px;
+  margin-bottom: 3.2rem;
+  font-size: 3.2rem;
 }
 
 .link-cadastro {
-    align-self: center;
+  align-self: center;
+}
+
+@media only screen and (max-width: 830px) {
+  .login-left {
+    display: none;
+  }
+  .login-right,
+  .login-right-container {
+    width: 100%;
+  }
 }

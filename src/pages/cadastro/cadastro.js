@@ -1,14 +1,21 @@
+import { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { ButtonGreen } from "../../components/CustomButton/CustomButton";
 import { CustomInput } from "../../components/CustomInput/CustomInput";
-import useContatos from "../../hooks/useContatos";
+import useRequests from "../../hooks/useRequests";
 import { alertaErro, alertaSucesso } from "../../utils/toast";
 import "./style.css";
 
 export default function Cadastro() {
-  const { inputCadastro, setInputCadastro } = useContatos();
+  const [inputCadastro, setInputCadastro] = useState({
+    nome: "",
+    email: "",
+    senha: "",
+  });
+
+  const { cadastrar } = useRequests();
   const history = useHistory();
 
   async function handleCadastrar() {
@@ -16,27 +23,14 @@ export default function Cadastro() {
       return;
 
     try {
-      const response = await fetch(
-        "https://cubos-api-contacts.herokuapp.com/usuarios",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(inputCadastro),
-        }
-      );
-      if (response.status !== 200) {
-        const responseMessage = await response.json();
-        console.log(responseMessage);
-        return alertaErro(responseMessage);
-      }
+      await cadastrar(inputCadastro);
+
       alertaSucesso("Cadastrado com sucesso !");
       setTimeout(() => {
         history.push("/login");
       }, 2000);
     } catch (error) {
-      console.log(error);
+      alertaErro(error.response.data);
     }
   }
   return (

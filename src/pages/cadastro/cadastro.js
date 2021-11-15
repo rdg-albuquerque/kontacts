@@ -23,10 +23,7 @@ export default function Cadastro() {
       return;
 
     try {
-<<<<<<< HEAD
-=======
       console.log(inputCadastro);
->>>>>>> b3bdd833d8cf546ffbf0cf72e5297b19576cde71
       await cadastrar(inputCadastro);
 
       alertaSucesso("Cadastrado com sucesso !");
@@ -34,12 +31,8 @@ export default function Cadastro() {
         history.push("/login");
       }, 2000);
     } catch (error) {
-<<<<<<< HEAD
-      alertaErro(error.response.data);
-=======
       console.log(error);
       alertaErro(error);
->>>>>>> b3bdd833d8cf546ffbf0cf72e5297b19576cde71
     }
   }
   return (
@@ -50,10 +43,6 @@ export default function Cadastro() {
 
           <CustomInput
             className="input-nome-email"
-<<<<<<< HEAD
-=======
-            variant="outlined"
->>>>>>> b3bdd833d8cf546ffbf0cf72e5297b19576cde71
             placeholder={"Nome"}
             callback={(e) => {
               setInputCadastro({ ...inputCadastro, nome: e.target.value });
@@ -62,10 +51,6 @@ export default function Cadastro() {
           />
           <CustomInput
             className="input-cadastro-email"
-<<<<<<< HEAD
-=======
-            variant="outlined"
->>>>>>> b3bdd833d8cf546ffbf0cf72e5297b19576cde71
             placeholder={"Email"}
             callback={(e) => {
               setInputCadastro({ ...inputCadastro, email: e.target.value });
@@ -73,10 +58,6 @@ export default function Cadastro() {
           />
           <CustomInput
             className="input-cadastro-senha"
-<<<<<<< HEAD
-=======
-            variant="outlined"
->>>>>>> b3bdd833d8cf546ffbf0cf72e5297b19576cde71
             type="password"
             placeholder={"Senha"}
             sx={{ mb: "50px" }}

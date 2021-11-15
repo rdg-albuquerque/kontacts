@@ -13,12 +13,7 @@ export default function useRequests() {
   }
 
   async function cadastrar(dados) {
-<<<<<<< HEAD
     return await instance.post("/usuarios", dados);
-=======
-    console.log(dados);
-    return await instance.post("/cadastrar", dados);
->>>>>>> 6b1ae68 (requests de login e cadastro movidas para o hook de requests)
   }
 
   async function getContatos() {

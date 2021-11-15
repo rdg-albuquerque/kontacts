@@ -1,41 +1,36 @@
+import { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { ButtonGreen } from "../../components/CustomButton/CustomButton";
 import { CustomInput } from "../../components/CustomInput/CustomInput";
 import useContatos from "../../hooks/useContatos";
+import useRequests from "../../hooks/useRequests";
 import { alertaErro } from "../../utils/toast";
 import "./style.css";
 
 export default function Login() {
-  const { inputLogin, setInputLogin, setToken, setUser, setListaContatos } =
-    useContatos();
+  const { setToken, setUser, setListaContatos } = useContatos();
+  const { login } = useRequests();
   const history = useHistory();
+
+  const [inputLogin, setInputLogin] = useState({
+    email: "",
+    senha: "",
+  });
 
   async function handleLogin() {
     if (!inputLogin.email || !inputLogin.senha) return;
-    const response = await fetch(
-      "https://cubos-api-contacts.herokuapp.com/login",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(inputLogin),
-      }
-    );
-    if (response.status !== 200) {
+    try {
+      const { data } = await login(inputLogin);
+
+      setListaContatos([]);
+      setUser(data);
+      setToken(data.token);
+      history.push("/");
+    } catch (error) {
       return alertaErro("E-mail ou senha incorretos");
     }
-    const data = await response.json();
-
-    const { email, ...dadosUsuario } = data.usuario; //Retirando e-mail dos dados da req
-
-    const localUser = { token: data.token, usuario: dadosUsuario };
-    setListaContatos([]);
-    setUser(localUser);
-    setToken(data.token);
-    history.push("/");
   }
 
   return (

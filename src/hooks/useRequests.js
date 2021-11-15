@@ -13,7 +13,12 @@ export default function useRequests() {
   }
 
   async function cadastrar(dados) {
+<<<<<<< HEAD
     return await instance.post("/usuarios", dados);
+=======
+    console.log(dados);
+    return await instance.post("/cadastrar", dados);
+>>>>>>> b3bdd833d8cf546ffbf0cf72e5297b19576cde71
   }
 
   async function getContatos() {

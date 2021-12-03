@@ -9,6 +9,7 @@ import editar from "../../assets/editar-button.svg";
 import excluir from "../../assets/excluir-button.svg";
 import useContatos from "../../hooks/useContatos";
 import useRequests from "../../hooks/useRequests";
+import addMask from "../../utils/addMask";
 import StyledCell from "../tabela/table-cell";
 
 export default function Tabela() {
@@ -62,7 +63,9 @@ export default function Tabela() {
                   {contato.nome}
                 </StyledCell>
                 <StyledCell>{contato.email}</StyledCell>
-                <StyledCell>{contato.telefone}</StyledCell>
+                <StyledCell>
+                  {addMask(contato.telefone, "(xx)x xxxx-xxxx")}
+                </StyledCell>
                 <StyledCell>
                   <div style={{ display: "flex" }}>
                     <img

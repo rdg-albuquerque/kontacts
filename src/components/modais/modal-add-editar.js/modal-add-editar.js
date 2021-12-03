@@ -6,8 +6,8 @@ import { useEffect, useState } from "react";
 import closeButton from "../../../assets/close-button.svg";
 import useContatos from "../../../hooks/useContatos";
 import useRequests from "../../../hooks/useRequests";
-import { ButtonGreen, ButtonRed } from "../../CustomButton/CustomButton";
-import { CustomInput } from "../../CustomInput/CustomInput";
+import { ButtonBlue, ButtonRed } from "../../CustomButton/CustomButton";
+import { CustomInput, MaskedInput } from "../../CustomInput/CustomInput";
 
 const style = {
   position: "absolute",
@@ -76,7 +76,7 @@ export default function ModalAddEdit() {
     if (!contato.nome) return setErroInput({ ...initialErroInput, nome: true });
     if (!contato.email)
       return setErroInput({ ...initialErroInput, email: true });
-    if (!contato.telefone)
+    if (!contato.telefone || contato.telefone.length < 11)
       return setErroInput({ ...initialErroInput, telefone: true });
 
     if (modalAtual === "Adicionar") {
@@ -112,7 +112,13 @@ export default function ModalAddEdit() {
             id="modal-modal-title"
             variant="h6"
             component="h2"
-            sx={{ fontWeight: "bold", alignSelf: "center", mb: "40px" }}
+            sx={{
+              fontWeight: "bold",
+              alignSelf: "center",
+              mb: "40px",
+              fontSize: "2.4rem",
+              color: "#414141",
+            }}
           >
             {modalAtual === "Adicionar" ? "Novo Contato" : "Editar Contato"}
           </Typography>
@@ -122,7 +128,7 @@ export default function ModalAddEdit() {
             placeholder="Nome"
             mb={erroInput.nome ? "30px" : "15px"}
             value={contato.nome}
-            callback={(e) => {
+            onChange={(e) => {
               setContato({ ...contato, nome: e.target.value });
               setErroInput({ ...erroInput, nome: false });
             }}
@@ -135,7 +141,7 @@ export default function ModalAddEdit() {
             placeholder={"Email"}
             mb={erroInput.email ? "30px" : "15px"}
             value={contato.email}
-            callback={(e) => {
+            onChange={(e) => {
               setContato({ ...contato, email: e.target.value });
               setErroInput({ ...erroInput, email: false });
             }}
@@ -143,27 +149,34 @@ export default function ModalAddEdit() {
             helperText={erroInput.email ? "Campo obrigatório" : ""}
           />
 
-          <CustomInput
+          <MaskedInput
             className="input-contato-telefone"
             placeholder={"Telefone"}
             type="number"
+            mask="(99)9 9999-9999"
             mb="72px"
             value={contato.telefone}
-            callback={(e) => {
+            onChange={(e) => {
               setContato({ ...contato, telefone: e.target.value });
               setErroInput({ ...erroInput, telefone: false });
             }}
             error={erroInput.telefone}
-            helperText={erroInput.telefone ? "Campo obrigatório" : ""}
+            helperText={
+              erroInput.telefone && contato.telefone.length === 0
+                ? "Campo obrigatório"
+                : erroInput.telefone && contato.telefone.length < 11
+                ? "Número inválido"
+                : ""
+            }
           />
 
-          <ButtonGreen
+          <ButtonBlue
             className="btn-adicionar-contato"
             variant="contained"
             onClick={handleClick}
           >
             {contatoSelecionado.nome ? "Editar" : "Adicionar"}
-          </ButtonGreen>
+          </ButtonBlue>
 
           <ButtonRed
             className="btn-limpar-inputs-contato"

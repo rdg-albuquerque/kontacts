@@ -18,7 +18,7 @@ const ButtonGreen = styled(Button)({
 const ButtonRed = styled(Button)({
   fontSize: "1.6rem",
   marginBottom: "8px",
-  height: "50px",
+  height: "5rem",
   backgroundColor: "#FB0615A6",
   "&:hover": {
     backgroundColor: "#d80311a6",
@@ -26,4 +26,13 @@ const ButtonRed = styled(Button)({
   },
 });
 
-export { ButtonGreen, ButtonRed };
+const ButtonBlue = styled(Button)({
+  fontSize: "1.6rem",
+  marginBottom: "8px",
+  height: "5rem",
+  "@media only screen and (max-width: 780px)": {
+    width: "100%",
+  },
+});
+
+export { ButtonGreen, ButtonRed, ButtonBlue };

@@ -67,7 +67,7 @@ export default function ModalExcluir() {
               fontWeight: "bold",
               alignSelf: "center",
               mb: "10px",
-              fontSize: "1.6rem",
+              fontSize: "2.4rem",
             }}
           >
             Tem certeza ?
@@ -75,7 +75,7 @@ export default function ModalExcluir() {
 
           <Typography
             id="modal-modal-subtitle"
-            sx={{ alignSelf: "center", mb: "40px", fontSize: "1.2rem" }}
+            sx={{ alignSelf: "center", mb: "40px", fontSize: "1.6rem" }}
           >
             {`Excluir ${contatoSelecionado.nome} ?`}
           </Typography>

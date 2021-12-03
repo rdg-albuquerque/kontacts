@@ -3,10 +3,7 @@ import { Link, useHistory } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { ButtonBlue } from "../../components/CustomButton/CustomButton";
-import {
-  CustomInput,
-  MaskedInput,
-} from "../../components/CustomInput/CustomInput";
+import { CustomInput } from "../../components/CustomInput/CustomInput";
 import useContatos from "../../hooks/useContatos";
 import useRequests from "../../hooks/useRequests";
 import { alertaErro } from "../../utils/toast";

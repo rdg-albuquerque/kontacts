@@ -1,6 +1,5 @@
 import { TextField } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import { useEffect, useState } from "react";
 import InputMask from "react-input-mask";
 
 const StyledInput = styled(TextField)({

@@ -8,7 +8,7 @@
   width: 50%;
 }
 .login-left {
-  background-image: url("../../assets/login-bg.png");
+  background-image: url("../../assets/login-bg.svg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;

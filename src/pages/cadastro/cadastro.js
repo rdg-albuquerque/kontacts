@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { ButtonGreen } from "../../components/CustomButton/CustomButton";
+import { ButtonBlue } from "../../components/CustomButton/CustomButton";
 import { CustomInput } from "../../components/CustomInput/CustomInput";
 import useRequests from "../../hooks/useRequests";
 import { alertaErro, alertaSucesso } from "../../utils/toast";
@@ -42,7 +42,7 @@ export default function Cadastro() {
           <CustomInput
             className="input-nome-email"
             placeholder={"Nome"}
-            callback={(e) => {
+            onChange={(e) => {
               setInputCadastro({ ...inputCadastro, nome: e.target.value });
               console.log(inputCadastro);
             }}
@@ -50,7 +50,7 @@ export default function Cadastro() {
           <CustomInput
             className="input-cadastro-email"
             placeholder={"Email"}
-            callback={(e) => {
+            onChange={(e) => {
               setInputCadastro({ ...inputCadastro, email: e.target.value });
             }}
           />
@@ -59,18 +59,18 @@ export default function Cadastro() {
             type="password"
             placeholder={"Senha"}
             sx={{ mb: "50px" }}
-            callback={(e) => {
+            onChange={(e) => {
               setInputCadastro({ ...inputCadastro, senha: e.target.value });
             }}
           />
-          <ButtonGreen
+          <ButtonBlue
             className="btn-cadastrar"
             variant="contained"
             sx={{ mb: "96px" }}
             onClick={handleCadastrar}
           >
             Cadastrar
-          </ButtonGreen>
+          </ButtonBlue>
           <span className="link-cadastro">
             Já cadastro ? Clique <Link to="/login">aqui</Link>
           </span>

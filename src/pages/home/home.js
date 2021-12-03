@@ -1,5 +1,5 @@
 import { ToastContainer } from "react-toastify";
-import { ButtonGreen } from "../../components/CustomButton/CustomButton";
+import { ButtonBlue } from "../../components/CustomButton/CustomButton";
 import Header from "../../components/Header/Header";
 import ModalAddEdit from "../../components/modais/modal-add-editar.js/modal-add-editar";
 import ModalExcluir from "../../components/modais/modal-excluir/modal-excluir";
@@ -15,14 +15,14 @@ export default function Home() {
       <Header />
       <section className="section">
         <div className="home-container">
-          <ButtonGreen
+          <ButtonBlue
             className="btn-adicionar-contato"
             sx={{ mb: "3.2rem", width: "23rem" }}
             variant="contained"
             onClick={() => setModalAddEdit(true)}
           >
             Adicionar
-          </ButtonGreen>
+          </ButtonBlue>
           <Tabela />
           {modalAddEdit && <ModalAddEdit />}
           {modalExcluir && <ModalExcluir />}

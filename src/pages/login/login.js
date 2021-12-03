@@ -2,8 +2,11 @@ import { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { ButtonGreen } from "../../components/CustomButton/CustomButton";
-import { CustomInput } from "../../components/CustomInput/CustomInput";
+import { ButtonBlue } from "../../components/CustomButton/CustomButton";
+import {
+  CustomInput,
+  MaskedInput,
+} from "../../components/CustomInput/CustomInput";
 import useContatos from "../../hooks/useContatos";
 import useRequests from "../../hooks/useRequests";
 import { alertaErro } from "../../utils/toast";
@@ -17,6 +20,7 @@ export default function Login() {
   const [inputLogin, setInputLogin] = useState({
     email: "",
     senha: "",
+    telefone: "",
   });
 
   async function handleLogin() {
@@ -29,6 +33,7 @@ export default function Login() {
       setToken(data.token);
       history.push("/");
     } catch (error) {
+      console.log(error);
       return alertaErro("E-mail ou senha incorretos");
     }
   }
@@ -45,7 +50,7 @@ export default function Login() {
             className="input-login-email"
             value={inputLogin.email}
             placeholder="Email"
-            callback={(e) => {
+            onChange={(e) => {
               setInputLogin({ ...inputLogin, email: e.target.value });
             }}
           />
@@ -55,18 +60,18 @@ export default function Login() {
             type="password"
             placeholder="Senha"
             mb="5rem"
-            callback={(e) => {
+            onChange={(e) => {
               setInputLogin({ ...inputLogin, senha: e.target.value });
             }}
           />
-          <ButtonGreen
+          <ButtonBlue
             className="btn-logar"
             sx={{ mb: "9.6rem" }}
             variant="contained"
             onClick={handleLogin}
           >
             Login
-          </ButtonGreen>
+          </ButtonBlue>
           <span className="link-cadastro">
             Não tem cadastro ? <Link to="/cadastro">Cadastre-se</Link>
           </span>

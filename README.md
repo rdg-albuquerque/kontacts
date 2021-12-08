@@ -1,6 +1,8 @@
 # kontacts
 Aplicação front-end responsiva feita em React para cadastro de contatos.
 
+Link da aplicação: https://kontacts-app.netlify.app/
+
 ## Features
 - Cadastro de usuários
 - Login e autênticação
